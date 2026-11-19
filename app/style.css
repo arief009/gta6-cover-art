@@ -1,12 +1,36 @@
-html, body { margin: 0; height: 100%; background: #f2f0f4; color: #1d1b22; font: 15px/1.4 system-ui, sans-serif; }
-.app { display: flex; gap: 32px; align-items: center; justify-content: center; height: 100%; padding: 24px; box-sizing: border-box; }
-.controls { display: flex; flex-direction: column; gap: 14px; width: 280px; }
-.controls h1 { margin: 0; font-size: 28px; }
-.controls p { margin: 0; color: #5c5866; }
+html, body { margin: 0; min-height: 100%; background: #17101f; color: #f4eef7; font: 15px/1.45 system-ui, sans-serif; }
+.top { padding: 20px 28px 8px; }
+.top h1 { margin: 0; font-size: 34px; letter-spacing: 0.08em; background: linear-gradient(90deg, #ffb347, #ff5e78 55%, #b04dff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.top p { margin: 4px 0 0; color: #b9a8c4; }
+.app { display: flex; gap: 28px; align-items: flex-start; padding: 16px 28px 28px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 18px; width: 320px; flex: none; }
+.group { background: #221729; border: 1px solid #3a2748; border-radius: 12px; padding: 16px; }
+.group h2 { margin: 0 0 12px; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: #ffb347; }
+.slots { display: flex; flex-direction: column; gap: 10px; }
+.slot { display: grid; grid-template-columns: 64px 1fr auto; gap: 8px; align-items: center; }
+.slot-name { font-weight: 700; }
+.thumb { width: 64px; height: 48px; object-fit: cover; background: #160d24; border: 1px solid #3a2748; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #8a7398; font-size: 12px; overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot input[type=file] { font: inherit; color: #cfc3d8; }
+.slot input[type=file]::file-selector-button { font: inherit; font-weight: 600; padding: 6px 10px; border: 0; border-radius: 6px; background: #3a2748; color: #fff; cursor: pointer; }
+.samples { display: flex; gap: 8px; align-items: center; margin-top: 10px; color: #b9a8c4; }
+button { font: inherit; font-weight: 600; padding: 8px 12px; border: 1px solid #4a3260; border-radius: 8px; background: #2c1c38; color: #f4eef7; cursor: pointer; }
+button:hover { background: #3a2748; }
+button.active { background: linear-gradient(90deg, #ff7e5f, #b04dff); border-color: transparent; color: #fff; }
+.choices { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hint { margin: 0 0 10px; color: #b9a8c4; font-size: 13px; }
+.panel-editor { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #3a2748; padding-top: 12px; }
+.panel-editor p { margin: 0; }
 label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
-input[type=text] { font: inherit; padding: 8px; border: 1px solid #c9c4d1; border-radius: 6px; }
-button { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 6px; background: #1d1b22; color: #fff; cursor: pointer; }
-canvas { width: min(70vh, 60vw); height: min(70vh, 60vw); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
-body.shot-cover .controls { display: none; }
-body.shot-cover .app { padding: 0; }
-body.shot-cover canvas { width: 100vw; height: 100vh; box-shadow: none; }
+.row { display: flex; gap: 12px; }
+.row label { flex: 1; }
+input[type=text], select { font: inherit; padding: 8px; border: 1px solid #4a3260; border-radius: 6px; background: #160d24; color: #f4eef7; }
+input[type=range] { width: 100%; accent-color: #ff5e78; }
+.export { width: 100%; padding: 12px; font-size: 16px; font-weight: 800; background: linear-gradient(90deg, #ff7e5f, #b04dff); border: 0; }
+#status { margin: 8px 0 0; min-height: 20px; color: #8fe3a0; }
+.preview { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 16px; }
+.preview canvas { max-width: 100%; max-height: calc(100vh - 140px); width: auto; height: auto; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55); cursor: crosshair; }
+body.shot-cover .top, body.shot-cover .controls, body.shot-cover .preview .hint { display: none; }
+body.shot-cover .app { padding: 0; display: block; }
+body.shot-cover .preview { position: static; }
+body.shot-cover canvas { max-width: none; max-height: none; width: 100vw; height: 100vh; box-shadow: none; cursor: default; }
